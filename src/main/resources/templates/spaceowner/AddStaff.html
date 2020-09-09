@@ -109,7 +109,13 @@
         <div class="card-body">
 
           <form class="form-horizontal" role="form" method="POST" th:action="@{/useradd}" th:object="${User}">
-    
+               <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+              <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+     </div>
+             </div>
+         </div>
                 <div class="row">
 
                   <div class="input-group col-lg-7 mb-4">
@@ -168,6 +174,15 @@
                             </span>
                         </div>
                         <input required id="password" name="password" type="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-calendar text-muted"></i>
+                            </span>
+                        </div>
+                        <input required id="role" name="role" type="text" placeholder="role" value="ROLE_USER" class="form-control bg-white border-left-0 border-md">
                     </div>
 
                     <div class="form-group text-center col-lg-12 mx-auto mb-0">

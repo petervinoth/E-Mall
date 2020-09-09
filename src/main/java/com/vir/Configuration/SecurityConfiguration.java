@@ -19,8 +19,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 	
-	 private final String USERS_QUERY = "select username, password, enabled from mall where username=?";
-	 private final String ROLES_QUERY = "select username, role from mall where username=?";
+	 private final String USERS_QUERY = "select username, password, enabled from staffinfo where username=?";
+	 private final String ROLES_QUERY = "select username, role from staffinfo where username=?";
 
 
 	@Autowired
@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		   .antMatchers("/signup").permitAll()
 		   .antMatchers("/forgotpassword").permitAll()
 			
-		   .antMatchers("/useradd").permitAll()
+		  
 		   .antMatchers("/home").permitAll()
 		   
 			
@@ -58,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		   
 		   .authenticated().and().csrf().disable()
 			   .formLogin().loginPage("/login").failureUrl("/Login?error=true")
-			  .defaultSuccessUrl("/home")
+			  .defaultSuccessUrl("/home/home")
 			  
 	       
 			

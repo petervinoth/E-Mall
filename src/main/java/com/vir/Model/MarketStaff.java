@@ -48,6 +48,12 @@ public class MarketStaff {
 	
 	@Column(name="Ammount")
 	private String total;
+	
+	@Column(name="Staff")
+	private String staff;
+	
+	@Column(name="Vacant")
+	private String Vacant;
 
 	public int getId() {
 		return id;
@@ -143,6 +149,22 @@ public class MarketStaff {
 
 	public void setTotal(String total) {
 		this.total = total;
+	}
+
+	public String getStaff() {
+		return staff;
+	}
+
+	public void setStaff(String staff) {
+		this.staff = staff;
+	}
+
+	public String getVacant() {
+		return Vacant;
+	}
+
+	public void setVacant(String vacant) {
+		Vacant = vacant;
 	}
 	
 	

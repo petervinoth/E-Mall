@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.vir.Model.MarketStaff;
 import com.vir.Model.Staff;
 import com.vir.Repository.MarketRepository;
 import com.vir.Repository.StaffRepository;
@@ -56,13 +56,13 @@ public class StaffController {
 		ModelAndView model=new ModelAndView();
 		Staff exit=repository.findByUsername(staff.getUsername());
 		if(exit != null) {
-			   bindingResult.rejectValue("username", "error.user", "This username already exists!");
-			  }
+			model.setViewName("spaceowner/error1");
+		}
 		else {
 			staff.setPassword(Encoder.encode(staff.getPassword()));
 			repository.save(staff);
 			System.out.print("save success");
-			model.addObject("msg","add successfully");
+			model.addObject("msg","add Staff successfully");
 			model.setViewName("spaceowner/AddStaff");
 			
 		}
@@ -101,12 +101,12 @@ public class StaffController {
 		
 	}
 	
-	 @RequestMapping(value= {"/home"}, method=RequestMethod.GET)
+	 @RequestMapping(value= {"/home/home"}, method=RequestMethod.GET)
 	 public ModelAndView main() {
 	  ModelAndView model = new ModelAndView();
 	  System.out.print("home work");
 	  
-	  model.setViewName("home");
+	  model.setViewName("home/home");
 	  return model;
 	 }
 
@@ -140,14 +140,27 @@ public class StaffController {
 	 @RequestMapping(value="/deletee/{id}",method=RequestMethod.GET)
 	 public ModelAndView doDelete(@PathVariable("id") int id ,Model model) {
 		ModelAndView model2=new ModelAndView();
-		Staff book=repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
+		Staff book=repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid space Id:" + id));
 		
 			 	repository.delete(book);
 	      // model.addAttribute("bloods", repo.findAll());
-	         model2.setViewName("spaceowner/dismiss");
+	         model2.setViewName("spaceowner/AddStaff");
 	         return model2;
 	 
 	 }
+	 
+	 @RequestMapping(value="/delete/{id}",method=RequestMethod.GET)
+	 public ModelAndView Delete(@PathVariable("id") int id ,Model model) {
+		ModelAndView model2=new ModelAndView();
+		MarketStaff mark=repo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid space Id:" + id));
+		
+			 	repo.delete(mark);
+	      // model.addAttribute("bloods", repo.findAll());
+	         model2.setViewName("spaceowner/BookSpace");
+	         return model2;
+	 
+	 }
+	 
 	 
 	 @RequestMapping(value="/liststaff",method=RequestMethod.GET)
 		public ModelAndView viewall(ModelAndView model1,Model model) {
@@ -175,5 +188,8 @@ public class StaffController {
 	  return model;
 	 }
 	 
+	
+		
+		
 	
 }

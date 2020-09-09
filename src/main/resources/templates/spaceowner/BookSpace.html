@@ -107,7 +107,14 @@
       	<div class="card-body">
 
            <form class="form-horizontal" role="form" method="POST" th:action="@{/space}" th:object="${mark}">
-    
+     
+             <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+              <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+     </div>
+             </div>
+         </div>
                 <div class="row">
 
                     <div class="input-group col-lg-7 mb-4">
@@ -219,6 +226,15 @@
                         </div>
                         <input required id="endDate" type="text" onfocus="(this.type='date')" placeholder="To Date" class="form-control bg-white border-left-0 border-md">
                     </div>
+                    
+                      <div class="input-group col-lg-7 mb-4">
+                    	<div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md">
+                                <i class="fa fa-user text-muted"></i>
+                            </span>
+                        </div>
+                        <input required id="staff" name="staff" type="text" value="admin"  placeholder="Enter StaffName" class="form-control bg-white border-left-0 border-md">
+                    </div>
 
                     <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
@@ -236,6 +252,20 @@
                             </span>
                         </div>
                         <input required id="bill" type="text" placeholder="Bill Amount" class="form-control bg-white border-left-0 border-md" readonly>
+                    </div>
+                    
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md">
+                                <i class="fa fa-money text-muted"></i>
+                            </span>
+                        </div>
+                        <select id="Vacant" name="Vacant" class="form-control custom-select bg-white border-left-0 border-md">
+                            <option value="">Type</option>
+                            <option value="Filled">Filled</option>
+                            <option value="vacant">vacant</option>
+                          
+                        </select>
                     </div>
 
                     <div class="form-group text-center col-lg-12 mx-auto mb-0">

@@ -76,8 +76,7 @@
             <a th:href="@{/revenuReport1}" class="list-group-item list-group-item-action bg-dark text-muted">Revenue Report</a>
         <a th:href="@{/utilityReport1}" class="list-group-item list-group-item-action bg-dark text-muted">Utility Report</a>
         <a th:href="@{/complaint1}" class="list-group-item list-group-item-action bg-dark text-muted">Complaint</a>
-        <a href="changePassword.html" class="list-group-item list-group-item-action bg-dark text-muted">Change Password</a>
-      </div>
+           </div>
     </div>
     <div id="page-content-wrapper">
     <nav class="navbar navbar-dark navbar-expand bg-dark justify-content-between">
@@ -106,7 +105,15 @@
       	<div class="card-body">
 
            <form class="form-horizontal" role="form" method="POST" th:action="@{/space1}" th:object="${mark}">
-    
+             
+               <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+              <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+              
+     </div>
+             </div>
+         </div>
                 <div class="row">
 
                     <div class="input-group col-lg-7 mb-4">
@@ -115,7 +122,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input required id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                        <input required id="fristname" type="text" name="fristname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
                     </div>
 
                     <div class="input-group col-lg-5 mb-4">
@@ -148,7 +155,7 @@
                             <option value="+44">+44</option>
                             <option value="+61">+61</option>
                         </select>
-                        <input required id="phoneNumber" type="tel" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                        <input required id="phoneNo" type="tel" name="phoneNo" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
                     </div>
 
                     <div class="input-group col-lg-12 mb-4">
@@ -157,7 +164,7 @@
                                 <i class="fa fa-home text-muted"></i>
                             </span>
                         </div>
-                        <select id="businessSpace" class="form-control custom-select bg-white border-left-0 border-md">
+                        <select id="space" name="space" class="form-control custom-select bg-white border-left-0 border-md">
                             <option value="">Business Space Type</option>
                             <option value="Shop - Small">Shop - Small</option>
                             <option value="Shop - Medium">Shop - Medium</option>
@@ -177,7 +184,7 @@
                                 <i class="fa fa-business-time text-muted"></i>
                             </span>
                         </div>
-                        <select id="duration" class="form-control custom-select bg-white border-left-0 border-md">
+                        <select id="duration" name="duration" class="form-control custom-select bg-white border-left-0 border-md">
                             <option value="">Duration</option>
                             <option value="All Days">All Days</option>
                             <option value="Week Days">Week Days</option>
@@ -192,7 +199,7 @@
                                 <i class="fa fa-money text-muted"></i>
                             </span>
                         </div>
-                        <select id="rentType" class="form-control custom-select bg-white border-left-0 border-md">
+                        <select id="type" name="type" class="form-control custom-select bg-white border-left-0 border-md">
                             <option value="">Rent Type</option>
                             <option value="Day Wise">Day Wise</option>
                             <option value="Hour Wise">Hour Wise</option>
@@ -207,7 +214,7 @@
                                 <i class="fa fa-calendar text-muted"></i>
                             </span>
                         </div>
-                        <input required id="startDate" type="text" onfocus="(this.type='date')" placeholder="From Date" class="form-control bg-white border-left-0 border-md">
+                        <input required id="from" name="from" type="text" onfocus="(this.type='date')" placeholder="From Date" class="form-control bg-white border-left-0 border-md">
                     </div>
 
                     <div class="input-group col-lg-6 mb-4">
@@ -216,7 +223,16 @@
                                 <i class="fa fa-calendar text-muted"></i>
                             </span>
                         </div>
-                        <input required id="endDate" type="text" onfocus="(this.type='date')" placeholder="To Date" class="form-control bg-white border-left-0 border-md">
+                        <input required id="to" name="to" type="text" onfocus="(this.type='date')" placeholder="To Date" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    
+                      <div class="input-group col-lg-7 mb-4">
+                    	<div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md">
+                                <i class="fa fa-user text-muted"></i>
+                            </span>
+                        </div>
+                        <input required id="staff" name="staff" type="text"  placeholder="Enter StaffName" class="form-control bg-white border-left-0 border-md">
                     </div>
 
                     <div class="input-group col-lg-6 mb-4">
@@ -225,7 +241,7 @@
                                 <i class="fa fa-money text-muted"></i>
                             </span>
                         </div>
-                        <input required id="priceperday" type="text" placeholder="Price Per Day" class="form-control bg-white border-left-0 border-md" readonly>
+                        <input required id="pricePerday" name="pricePerday" type="text" placeholder="Price Per Day" class="form-control bg-white border-left-0 border-md" readonly>
                     </div>
 
                     <div class="input-group col-lg-6 mb-4">
@@ -234,8 +250,25 @@
                                 <i class="fa fa-rupee-sign text-muted"></i>
                             </span>
                         </div>
-                        <input required id="bill" type="text" placeholder="Bill Amount" class="form-control bg-white border-left-0 border-md" readonly>
+                        <input required id="total" name="total" type="text" placeholder="Bill Amount" class="form-control bg-white border-left-0 border-md" readonly>
                     </div>
+                    
+                     <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md">
+                                <i class="fa fa-money text-muted"></i>
+                            </span>
+                        </div>
+                        <select id="Vacant" name="Vacant" class="form-control custom-select bg-white border-left-0 border-md">
+                            <option value="">Type</option>
+                            <option value="Filled">Filled</option>
+                            <option value="vacant">vacant</option>
+                          
+                        </select>
+                    </div>
+
+                  
+                   
 
                     <div class="form-group text-center col-lg-12 mx-auto mb-0">
                         <button class="btn btn-success ">Book Space</button>
@@ -255,28 +288,29 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled")
     });
+
     $(document).ready(function() {
-      $("#businessSpace").on("change", function() {
-        findPrice($("#businessSpace").val())
+      $("#space").on("change", function() {
+        findPrice($(this).val())
       });
 
-      $("#startDate, #endDate, #businessSpace").on("change", function() {
+      $("#from, #to, #space").on("change", function() {
           displayBill()
       });
 	  });
     //Days Calculator
     function parseDate(str) {
       var ymd = str.split('-')
-      console.log(new Date(ymd[0], ymd[1], ymd[2]))
       return new Date(ymd[0], ymd[1], ymd[2])
     }
+
     let diff=0,price=0
-    function calculateDays(startDate, endDate) {
-      if(startDate!=null && endDate!=null) {
-    	   diff= Math.round((parseDate(endDate)-parseDate(startDate))/(1000*60*60*24))
+    function calculateDays(from, to) {
+      if(from!=null && to!=null) {
+    	   diff= Math.round((parseDate(to)-parseDate(from))/(1000*60*60*24))
        }
-      //return diff
     }
+
     function findPrice(place) {
       if (place=== "Shop - Small") price= 250
       else if(place=== "Shop - Medium") price= 300
@@ -287,13 +321,14 @@
       else if(place=== "Marketing Banners - Small") price= 550
       else if(place=== "Marketing Banners - Medium") price= 600
       else if(place=== "Marketing Banners - Large") price= 650
-      document.getElementById('priceperday').value= price //+ "/day"
-      //return price
+      else price= 0
+      document.getElementById('pricePerday').value= price //+ "/day"
     }
+
     function displayBill() {
-      calculateDays(document.getElementById('startDate').value, document.getElementById('endDate').value)
+      calculateDays(document.getElementById('from').value, document.getElementById('to').value)
       if(diff)
-      document.getElementById('bill').value= diff*price //+ " for " + diff + " days"
+      document.getElementById('total').value= diff*price //+ " for " + diff + " days"
     }
 </script>
 

@@ -74,8 +74,7 @@
             <a th:href="@{/revenuReport1}" class="list-group-item list-group-item-action bg-dark text-muted">Revenue Report</a>
         <a th:href="@{/utilityReport1}" class="list-group-item list-group-item-action bg-dark text-muted">Utility Report</a>
         <a th:href="@{/complaint1}" class="list-group-item list-group-item-action bg-dark text-muted">Complaint</a>
-        <a href="changePassword.html" class="list-group-item list-group-item-action bg-dark text-muted">Change Password</a>
-       </div>
+         </div>
     </div>
     <div id="page-content-wrapper">
     <nav class="navbar navbar-dark navbar-expand bg-dark justify-content-between">
@@ -104,7 +103,7 @@
                                         <th>id</th>  
                                         <th>Business Space</th>
                                           <th>Staff</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
                                         
                                       
                                        
@@ -119,7 +118,7 @@
                                         
                                           <td th:text="${infos.space}"></td>
                                           <td th:text="${infos.staff}"></td>
-                                        <td th:text="${infos.total}"></td>
+                                        <td th:text="${infos.Vacant}"></td>
                                        
                                        
                                </tr>
@@ -129,7 +128,7 @@
                                
                                
       </table>
-      Total Amount Collected: 70000
+    
     </div>
   </div>
 </div>

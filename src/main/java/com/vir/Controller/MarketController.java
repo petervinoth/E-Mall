@@ -36,8 +36,8 @@ public class MarketController {
 			ModelAndView model=new ModelAndView();
 			MarketStaff exit=repo.findBySpace(mark.getSpace());
 			if(exit != null) {
-				   bindingResult.rejectValue("space", "error.mark", "This space already exists!");
-				  }
+				model.setViewName("marketstaff/error");
+				}
 			else {
 				
 				repo.save(mark);
@@ -58,13 +58,15 @@ public class MarketController {
 		  return model;
 		 }
 		 
+		
 			@RequestMapping(value= {"/space1"},method=RequestMethod.POST)
-			public ModelAndView  space(MarketStaff mark,BindingResult bindingResult) {
+			public ModelAndView  space(MarketStaff mark) {
 				ModelAndView model=new ModelAndView();
 				MarketStaff exit=repo.findBySpace(mark.getSpace());
 				if(exit != null) {
-					   bindingResult.rejectValue("space", "error.mark", "This space already exists!");
-					  }
+					//model.addObject("msg","Space already taken");
+					model.setViewName("marketstaff/error");
+					}
 				else {
 					
 					repo.save(mark);
