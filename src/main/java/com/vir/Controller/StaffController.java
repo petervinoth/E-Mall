@@ -122,6 +122,7 @@ public class StaffController {
 	 public ModelAndView main1() {
 	  ModelAndView model = new ModelAndView();
 	  //System.out.print("home work");
+	 
 	  
 	  model.setViewName("spaceowner/dashboard");
 	  return model;
@@ -188,7 +189,14 @@ public class StaffController {
 	  return model;
 	 }
 	 
-	
+	 @RequestMapping(value= {"/forget"}, method=RequestMethod.GET)
+	 public ModelAndView forgot() {
+	  ModelAndView model = new ModelAndView();
+	 // System.out.print("home work");
+	  
+	  model.setViewName("forgetPassword");
+	  return model;
+	 }
 		
 		
 	

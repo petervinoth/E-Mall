@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Access Denied</title>
+	<meta charset="ISO-8859-1">
+	<link rel="icon" href="https://mr-meiy.github.io/Virtusa-eMall-Images/title-icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Black And White Picture' rel='stylesheet'>
+	<title>Access Denied</title>
+	<script type="text/javascript">
+		alert("Access Denied")
+	</script>
+	<style type="text/css"> 
+		.oops {
+    		font-family: 'Black And White Picture';
+    		font-size: 100px;
+		}
+	</style>
 </head>
-<body>
-	<h1>Sorry, you don't have permission</h1>
+<body class="bg-dark">
+	<div class="container text-center">
+		<h1 class="oops text-warning p-3">Oops..!</h1>
+		<h3 class="text-light">Access Denied. You don't have access for the page.</h3>
+		<a th:href="@{/home/home}" class="font-weight-bold">Go Back</a>
+	</div>
 </body>
 </html>
